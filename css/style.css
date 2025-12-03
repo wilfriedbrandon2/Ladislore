@@ -43,7 +43,6 @@
             color: var(--text-color);
             background-color: var(--light-color);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         a {
