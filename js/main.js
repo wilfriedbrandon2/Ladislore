@@ -148,6 +148,31 @@
             }
         ];
 
+        // Add this to your cart open/close functionality
+
+       // When opening cart
+       function openCart() {
+           document.body.classList.add('cart-open');
+           // ...existing cart open code...
+       }
+       
+       // When closing cart
+       function closeCart() {
+           document.body.classList.remove('cart-open');
+           // ...existing cart close code...
+       }
+       
+       // Also apply this to modals
+       function openModal(modalElement) {
+           document.body.classList.add('cart-open');
+           modalElement.classList.add('active');
+       }
+       
+       function closeModal(modalElement) {
+           document.body.classList.remove('cart-open');
+           modalElement.classList.remove('active');
+       }
+
         // Cart state
         let cart = [];
         let currentProductView = null;

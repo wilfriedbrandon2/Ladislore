@@ -269,6 +269,12 @@
         }
 
         /* Cart Sidebar */
+        /* Prevent body scroll when cart is open */
+        body.cart-open {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
         /* Customize Cart Sidebar Scrollbar */
          .cart-items::-webkit-scrollbar {
              width: 8px;
@@ -290,6 +296,7 @@
              box-shadow: 0 0 6px rgba(212, 175, 55, 0.4);
          }
 
+
          /* Firefox scrollbar */
          .cart-items {
              scrollbar-color: var(--primary-color) rgba(212, 175, 55, 0.1);
@@ -301,7 +308,7 @@
             right: -400px;
             width: 100%;
             max-width: 400px;
-            height: 100vh;
+            height: 100%;
             background-color: white;
             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             z-index: 1500;
