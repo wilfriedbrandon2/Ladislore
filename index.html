@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-    <link rel="icon" type="image/x-icon" href="#">
+    <link rel="icon" type="image/x-icon" href="img/IMG_9821.jpeg">
+
     <link rel="apple-touch-icon" href="#">
     <style>
-       @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+US+Trad+Guides&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Playwrite+US+Trad+Guides&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+US+Trad+Guides&display=swap');
 
         /* CSS Variables for consistent theming */
         :root {
@@ -28,12 +30,12 @@
             --header-height: 70px;
             --container-width: 1180px;
         }
-        .playwrite-us-trad-guides-regular {
-  font-family: "Playwrite US Trad Guides", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
+        .dancing-script {
+           font-family: "Dancing Script", cursive;
+           font-optical-sizing: auto;
+           font-weight: 400;
+           font-style: normal;
+       }
 
         * {
             margin: 0;
@@ -42,7 +44,7 @@
         }
 
         body {
-          font-family: "Dancing Script", cursive;
+            font-family: "poppins", sans-serif;
             color: var(--text-color);
             background-color: var(--light-color);
             line-height: 1.6;
@@ -113,11 +115,12 @@
         }
 
         .brand-name {
+            font-family: "Pacifico", cursive;
             font-size: 1.6rem;
             font-weight: 700;
             color: var(--primary-color);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .brand-name span {
@@ -166,12 +169,12 @@
         /* Search Bar */
         .search-container {
             position: relative;
-            width: 250px;
+            width: 550px;
         }
 
         .search-input {
             width: 100%;
-            padding: 10px 40px 10px 15px;
+            padding: 10px 40px 10px 19px;
             border: 2px solid rgba(255, 255, 255, 0.2);
             border-radius: 30px;
             font-size: 0.9rem;
@@ -602,7 +605,7 @@
         .hero-slider {
             margin-top: var(--header-height);
             position: relative;
-            height: 500px;
+            height: 75vh;
             overflow: hidden;
         }
 
@@ -613,8 +616,11 @@
 
         .hero-slide img {
             width: 100%;
-            height: 100%;
+            height: 75vh;
             object-fit: cover;
+            background-repeat: no-repeat; /* Empêche l'image de se répéter */
+            background-position: center; /* Centre l'image */
+            background-size: cover;
         }
 
         .slide-content {
@@ -622,8 +628,9 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 75vh;
             display: flex;
+            justify-content: center;
             align-items: center;
             padding: 0 60px;
             background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
@@ -632,10 +639,12 @@
         .slide-text {
             max-width: 500px;
             color: white;
+            text-align: center;
         }
 
         .slide-title {
-            font-size: 2.8rem;
+            font-family: "Dancing Script", cursive;
+            font-size: 3.2rem;
             margin-bottom: 15px;
             font-weight: 700;
             line-height: 1.2;
@@ -649,6 +658,8 @@
 
         .hero-buttons {
             display: flex;
+            justify-content: center;
+            align-items: center;
             gap: 15px;
             flex-wrap: wrap;
         }
@@ -1815,7 +1826,7 @@
             }
             
             .hero-slider {
-                height: 350px;
+                height: 65vh;
             }
             
             .slide-content {
@@ -1877,12 +1888,9 @@
         <div class="header-container">
             <div class="logo" id="homeLogo">
                 <div class="logo-img">
-                    <svg width="45" height="45" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" rx="20" fill="#D4AF37"/>
-                        <text x="50" y="50" text-anchor="middle" dy=".3em" font-family="Arial, sans-serif" font-weight="bold" font-size="30" fill="#000000">L</text>
-                    </svg>
+                    <img src="img/IMG_9821-removebg-preview.png" alt="" width="50px">
                 </div>
-                <div class="brand-name">Ladi<span>slore</span></div>
+                <div class="brand-name">Ladis<span>lore</span></div>
             </div>
             
             <div class="search-container">
@@ -2043,7 +2051,7 @@
         <!-- Hero Slider -->
         <section class="hero-slider">
             <div class="hero-slide">
-                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Cosmétiques Premium">
+                <img src="img/292.jpg">
                 <div class="slide-content">
                     <div class="slide-text">
                         <h1 class="slide-title">Découvrez Votre Beauté Avec Ladislore</h1>
@@ -2061,10 +2069,10 @@
             </div>
             
             <div class="hero-slide">
-                <img src="https://images.unsplash.com/photo-1581111736779-0d8c4d18a52d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Soins de la Peau">
+                <img src="img/287.jpg">
                 <div class="slide-content">
                     <div class="slide-text">
-                        <h1 class="slide-title">Nourrissez Votre Peau Naturellement</h1>
+                        <h1 class="slide-title">Nourrissez Vos Cheveux Naturellement</h1>
                         <p class="slide-description">Solutions de soins de la peau biologiques pour une peau radieuse et saine chaque jour.</p>
                         <div class="hero-buttons">
                             <a href="tel:+237653154864" class="btn btn-primary">
@@ -2078,11 +2086,11 @@
                 </div>
             </div>
             
-            <div class="hero-slide">
-                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1187&q=80" alt="Maquillage">
+            <div class="hero-slide" style="background">
+                <img src="img/292.jpg">
                 <div class="slide-content">
                     <div class="slide-text">
-                        <h1 class="slide-title">Maquillage de Luxe</h1>
+                        <h1 class="slide-title">Cheveux de Luxe</h1>
                         <p class="slide-description">Produits de maquillage haute performance pour une beauté éclatante et durable.</p>
                         <div class="hero-buttons">
                             <a href="tel:+237653154864" class="btn btn-primary">
@@ -2104,7 +2112,7 @@
                 <div class="category-slider">
                     <div class="category-item" data-category="skincare">
                         <div class="category-img-container">
-                            <img src="https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Soins de la Peau" class="category-img">
+                            <img src="img/IMG_9821.jpeg">
                         </div>
                         <div class="category-name">Soins de la Peau</div>
                     </div>
