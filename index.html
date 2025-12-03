@@ -12,6 +12,8 @@
 
     <link rel="apple-touch-icon" href="#">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Dancing+Script:wght@400..700&family=Lobster&family=Pacifico&family=Playwrite+US+Trad+Guides&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lobster&family=Pacifico&family=Playwrite+US+Trad+Guides&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Playwrite+US+Trad+Guides&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+US+Trad+Guides&display=swap');
 
@@ -30,6 +32,12 @@
             --header-height: 70px;
             --container-width: 1180px;
         }
+        .lobster-regular {
+           font-family: "Lobster", sans-serif;
+           font-weight: 400;
+           font-style: normal;
+         }
+
         .dancing-script {
            font-family: "Dancing Script", cursive;
            font-optical-sizing: auto;
@@ -44,7 +52,7 @@
         }
 
         body {
-            font-family: "poppins", sans-serif;
+            font-family: "Barlow Condensed", sans-serif;
             color: var(--text-color);
             background-color: var(--light-color);
             line-height: 1.6;
@@ -244,8 +252,8 @@
         /* Floating Back Button */
         .floating-back-btn {
             position: fixed;
-            top: 80px;
-            left: 20px;
+            bottom: 80px;
+            left: 80px;
             background-color: var(--primary-color);
             color: var(--dark-color);
             width: 50px;
@@ -602,7 +610,61 @@
         }
 
         /* Hero Slider */
-        .hero-slider {
+        /* Category Slider Navigation */
+        .category-slider .slick-prev,
+        .category-slider .slick-next {
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+            z-index: 10;
+        }
+        
+        .category-slider .slick-prev:hover,
+        .category-slider .slick-next:hover {
+            background: #D4AF37;
+        }
+        
+        .category-slider .slick-prev::before,
+        .category-slider .slick-next::before {
+            content: '';
+        }
+        
+        /* Dots styling */
+        .category-slider .slick-dots {
+            bottom: -40px;
+        }
+        
+        .category-slider .slick-dots li button:before {
+            font-size: 12px;
+            color: #D4AF37;
+        }
+        
+        .category-slider .slick-dots li.slick-active button:before {
+            color: #D4AF37;
+            opacity: 1;
+        }
+        
+        /* Hide dots on desktop */
+        @media (min-width: 769px) {
+            .category-slider .slick-dots {
+                display: none !important;
+            }
+        }
+        
+        /* Update hero-slide to use background images properly */
+        .hero-slide {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 500px;
+        }
+                .hero-slider {
             margin-top: var(--header-height);
             position: relative;
             height: 75vh;
@@ -702,6 +764,7 @@
         }
 
         .section-title {
+            font-family: "Lobster", sans-serif;
             text-align: center;
             font-size: 2rem;
             margin-bottom: 30px;
@@ -742,22 +805,24 @@
             margin: 0 auto 10px;
             border: 3px solid #f0f0f0;
             transition: var(--transition);
+            background: #000;
         }
 
         .category-item:hover .category-img-container {
             border-color: var(--primary-color);
         }
 
-        .category-img {
+        .category-img-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
         .category-name {
+            font-family: "Barlow Condensed", sans-serif;
             font-weight: 600;
             color: var(--dark-color);
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         /* Products Section */
@@ -831,6 +896,7 @@
         }
 
         .product-title {
+            font-family: "Barlow Condensed", sans-serif;
             font-weight: 600;
             margin-bottom: 8px;
             font-size: 1.1rem;
@@ -838,10 +904,11 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            min-height: 52px;
+            min-height: 5px;
         }
 
         .product-description {
+            font-family: "Barlow Condensed", sans-serif;
             color: var(--light-text);
             font-size: 0.9rem;
             margin-bottom: 12px;
@@ -854,9 +921,12 @@
 
         .product-price-container {
             margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
         }
 
         .current-price {
+            font-family: "Barlow Condensed", sans-serif;
             font-size: 1.2rem;
             color: var(--primary-color);
             display: block;
@@ -864,6 +934,7 @@
         }
 
         .old-price {
+            font-family: "Barlow Condensed", sans-serif;
             font-size: 0.9rem;
             color: var(--light-text);
             text-decoration: line-through;
@@ -871,6 +942,7 @@
         }
 
         .add-to-cart-btn {
+            font-family: "Barlow Condensed", sans-serif;
             width: 100%;
             padding: 12px;
             background-color: var(--dark-color);
@@ -1771,7 +1843,7 @@
             }
             
             .floating-back-btn {
-                top: 75px;
+               bottom: 75px;
                 left: 10px;
                 width: 45px;
                 height: 45px;
@@ -1813,8 +1885,12 @@
         }
 
         @media (max-width: 576px) {
+            .category-name {
+            font-family: "Barlow Condensed", sans-serif;
+               font-size: 0.7rem !important;
+           }
             .brand-name {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
             
             .logo-img {
@@ -2049,9 +2125,9 @@
     <!-- Home Page Content -->
     <div id="homePage">
         <!-- Hero Slider -->
+               <!-- Hero Slider -->
         <section class="hero-slider">
-            <div class="hero-slide">
-                <img src="img/292.jpg">
+            <div class="hero-slide" style="background-image: url('img/292.jpg');">
                 <div class="slide-content">
                     <div class="slide-text">
                         <h1 class="slide-title">Découvrez Votre Beauté Avec Ladislore</h1>
@@ -2068,8 +2144,7 @@
                 </div>
             </div>
             
-            <div class="hero-slide">
-                <img src="img/287.jpg">
+            <div class="hero-slide" style="background-image: url('img/287.jpg');">
                 <div class="slide-content">
                     <div class="slide-text">
                         <h1 class="slide-title">Nourrissez Vos Cheveux Naturellement</h1>
@@ -2086,8 +2161,7 @@
                 </div>
             </div>
             
-            <div class="hero-slide" style="background">
-                <img src="img/292.jpg">
+            <div class="hero-slide" style="background-image: url('img/292.jpg');">
                 <div class="slide-content">
                     <div class="slide-text">
                         <h1 class="slide-title">Cheveux de Luxe</h1>
@@ -2114,68 +2188,68 @@
                         <div class="category-img-container">
                             <img src="img/IMG_9821.jpeg">
                         </div>
-                        <div class="category-name">Soins de la Peau</div>
+                        <div class="category-name">Gamme Ladislore</div>
                     </div>
                     
                     <div class="category-item" data-category="makeup">
                         <div class="category-img-container">
-                            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Maquillage" class="category-img">
+                            <img src="img/l7.jpg">
                         </div>
-                        <div class="category-name">Maquillage</div>
+                        <div class="category-name">Doux Cheveux</div>
                     </div>
                     
                     <div class="category-item" data-category="fragrance">
                         <div class="category-img-container">
-                            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Parfums" class="category-img">
+                            <img src="img/L1.webp">
                         </div>
-                        <div class="category-name">Parfums</div>
+                        <div class="category-name">Cheveux Long</div>
                     </div>
                     
                     <div class="category-item" data-category="haircare">
                         <div class="category-img-container">
-                            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Soins des Cheveux" class="category-img">
+                            <img src="img/l9.webp">
                         </div>
-                        <div class="category-name">Soins des Cheveux</div>
+                        <div class="category-name">VS jutte cheveux</div>
                     </div>
                     
                     <div class="category-item" data-category="bodycare">
                         <div class="category-img-container">
-                            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Soins du Corps" class="category-img">
+                            <img src="img/l90.webp">
                         </div>
-                        <div class="category-name">Soins du Corps</div>
+                        <div class="category-name">Soins Cheveux</div>
                     </div>
                     
                     <div class="category-item" data-category="men">
                         <div class="category-img-container">
-                            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Produits pour Hommes" class="category-img">
+                            <img src="img/l3.webp">
                         </div>
                         <div class="category-name">Pour Hommes</div>
                     </div>
                     
                     <div class="category-item" data-category="nails">
                         <div class="category-img-container">
-                            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Soins des Ongles" class="category-img">
+                            <img src="img/l4.webp">
                         </div>
-                        <div class="category-name">Soins des Ongles</div>
+                        <div class="category-name">Soins brizzures </div>
                     </div>
                     
                     <div class="category-item" data-category="tools">
                         <div class="category-img-container">
-                            <img src="https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Accessoires" class="category-img">
+                            <img src="img/l6.jpg">
                         </div>
-                        <div class="category-name">Accessoires</div>
+                        <div class="category-name">Croissance longue</div>
                     </div>
                     
                     <div class="category-item" data-category="organic">
                         <div class="category-img-container">
-                            <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bio & Naturel" class="category-img">
+                            <img src="img/l3.webp">
                         </div>
                         <div class="category-name">Bio & Naturel</div>
                     </div>
                     
                     <div class="category-item" data-category="luxury">
                         <div class="category-img-container">
-                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Luxe" class="category-img">
+                            <img src="img/292.jpg">
                         </div>
                         <div class="category-name">Collection Luxe</div>
                     </div>
@@ -2455,9 +2529,9 @@
                 oldPrice: 20000,
                 discount: 25,
                 images: [
-                    "https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    "img/11.avif",
+                    "img/l9.webp",
+                    "img/l7.jpg"
                 ],
                 variations: [
                     { name: "30ml", price: 15000 },
@@ -2467,15 +2541,15 @@
             },
             {
                 id: 2,
-                name: "Collection de Rouge à Lèvres Mat",
-                description: "Rouge à lèvres mat longue tenue avec une pigmentation riche. Confortable à porter sans assécher vos lèvres.",
+                name: "Collection cheveux doux",
+                description: "cheveux doux longue tenue avec une pigmentation riche. Confortable à porter sans assécher vos lèvres.",
                 category: "makeup",
                 price: 8000,
                 oldPrice: 10000,
                 discount: 20,
                 images: [
-                    "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1586495777744-4413f21062fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    "img/l4.webp",
+                    "img/l2.jpg"
                 ],
                 variations: [
                     { name: "Velours Rouge", price: 8000 },
@@ -2486,15 +2560,15 @@
             },
             {
                 id: 3,
-                name: "Crème Hydratante Visage",
-                description: "Crème hydratante 24h avec acide hyaluronique pour une peau rebondie et hydratée. Convient à tous les types de peau.",
+                name: "Longue Pousser",
+                description: "Cheveuxhydratante 24h avec acide hyaluronique pour une peau rebondie et hydratée. Convient à tous les types de peau.",
                 category: "skincare",
                 price: 12000,
                 oldPrice: 15000,
                 discount: 20,
                 images: [
-                    "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    "img/l1.webp",
+                    "img/l7.jpg"
                 ],
                 variations: [
                     { name: "Peau Normale", price: 12000 },
@@ -2504,15 +2578,15 @@
             },
             {
                 id: 4,
-                name: "Mascara Volume",
+                name: "Cheveux Volume",
                 description: "Mascara allongeant et volumisant pour des cils dramatiques. Formule résistante à l'eau qui dure toute la journée.",
                 category: "makeup",
                 price: 7000,
                 oldPrice: 9000,
                 discount: 22,
                 images: [
-                    "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    "img/l9.webp",
+                    "img/l6.jpg"
                 ],
                 variations: [
                     { name: "Noir", price: 7000 },
@@ -2522,15 +2596,15 @@
             },
             {
                 id: 5,
-                name: "Huile Démaquillante Douce",
+                name: "Huile cheveux Douce",
                 description: "Démaquillant à base d'huile qui élimine le maquillage et les impuretés sans décaper les huiles naturelles de la peau.",
                 category: "skincare",
                 price: 10000,
                 oldPrice: 13000,
                 discount: 23,
                 images: [
-                    "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    "img/IMG_9821.jpeg",
+                    "img/l3.webp"
                 ],
                 variations: [
                     { name: "150ml", price: 10000 },
@@ -2539,15 +2613,15 @@
             },
             {
                 id: 6,
-                name: "Fond de Teint Finition Naturelle",
+                name: "produit Finition Naturelle",
                 description: "Fond de teint léger avec couvrance modulable pour une finition naturelle, semblable à la peau. Contient SPF 20.",
                 category: "makeup",
                 price: 14000,
                 oldPrice: 18000,
                 discount: 22,
                 images: [
-                    "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    "img/l6.jpg",
+                    "img/l4.webp"
                 ],
                 variations: [
                     { name: "Clair", price: 14000 },
@@ -2565,8 +2639,8 @@
                 oldPrice: 14000,
                 discount: 21,
                 images: [
-                    "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    "img/l7.jpg",
+                    "img/l1.webp"
                 ],
                 variations: [
                     { name: "Pour Cheveux Secs", price: 11000 },
@@ -2583,8 +2657,8 @@
                 oldPrice: 12000,
                 discount: 25,
                 images: [
-                    "https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-                    "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+                    "img/l3.webp",
+                    "img/l2.jpg"
                 ],
                 variations: [
                     { name: "Floraison d'Agrumes", price: 9000 },
@@ -3496,6 +3570,29 @@
             // Show success notification
             showNotification('Commande soumise via WhatsApp!');
         }
+                document.addEventListener('DOMContentLoaded', function() {
+            // Initialize hero slider
+            $('.hero-slider').slick({
+                arrows: false
+            });
+
+            // Initialize category slider with responsive arrows and dots
+            $('.category-slider').slick({
+                arrows: true,
+                dots: false,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            dots: true
+                        }
+                    }
+                ]
+            });
+
+            // ...existing code...
+        });
     </script>
     
     <!-- PWA Manifest -->
