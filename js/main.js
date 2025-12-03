@@ -1098,3 +1098,57 @@
 
             // ...existing code...
         });
+
+        // ...existing code...
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ...existing init code...
+
+    // Ensure about/home toggle works in-place (SPA)
+    if (aboutIcon) {
+        // initial mode = about (click will open about page)
+        aboutIcon.dataset.mode = 'about';
+
+        function showAboutView() {
+            if (homePage) homePage.style.display = 'none';
+            if (aboutPage) aboutPage.style.display = 'block';
+            aboutIcon.dataset.mode = 'home';
+            aboutIcon.innerHTML = '<i class="fas fa-home"></i>';
+            aboutIcon.title = 'Accueil';
+        }
+
+        function showHomeView() {
+            if (aboutPage) aboutPage.style.display = 'none';
+            if (homePage) homePage.style.display = 'block';
+            aboutIcon.dataset.mode = 'about';
+            aboutIcon.innerHTML = '<i class="fas fa-question-circle"></i>';
+            aboutIcon.title = 'À propos';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        aboutIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (aboutIcon.dataset.mode === 'home') {
+                showHomeView();
+            } else {
+                showAboutView();
+            }
+        });
+
+        // If other controls should return to home (floating back, logo), restore icon
+        if (homeLogo) {
+            homeLogo.addEventListener('click', function() {
+                showHomeView();
+            });
+        }
+        if (floatingBackBtn) {
+            floatingBackBtn.addEventListener('click', function() {
+                showHomeView();
+            });
+        }
+    }
+
+    // ...rest of init code...
+});
+
+// ...existing code...

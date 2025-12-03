@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>A propos — Ladislore</title>
+    <meta name="theme-color" content="#D4AF37">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="img/IMG_9821.jpeg">
+</head>
+<body>
+    <!-- Header (same style as main site) -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="img/IMG_9821.jpeg" alt="Ladislore" class="logo-img">
+                <span class="brand-name">Ladislore</span>
+            </a>
+
+            <!-- Home icon shown on about page to return to home -->
+            <nav class="header-nav">
+                <a href="index.html" class="home-icon" title="Accueil">
+                    <i class="fas fa-home"></i>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="about-page" id="aboutPage" style="display: none;">
+        <!-- About Hero -->
+        <section class="about-hero">
+            <img src="https://images.unsplash.com/photo-1571877227200-0b8039c61c7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="À Propos de Ladislore">
+            <div class="about-hero-content">
+                <div>
+                    <h1 class="about-hero-title">À Propos de Ladislore</h1>
+                    <p class="about-hero-description">Votre beauté, notre passion. Découvrez l'histoire derrière notre engagement pour votre éclat naturel.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Content -->
+        <section class="about-section">
+            <div class="container">
+                <h1 class="about-title">Notre Histoire</h1>
+                <p class="about-description">
+                    Ladislore est une marque de cosmétiques premium dédiée à l'amélioration de la beauté naturelle avec des ingrédients de haute qualité, 
+                    provenant de sources éthiques. Notre mission est de fournir des solutions de soins de la peau et de maquillage efficaces 
+                    qui permettent aux individus de se sentir confiants et beaux dans leur propre peau.
+                </p>
+                
+                <h2 class="section-title">Résultats Réels</h2>
+                <div class="comparison-container" id="comparisonContainer">
+                    <div class="comparison-image">
+                        <div class="comparison-before">
+                            <img src="https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Avant">
+                            <div class="comparison-label label-before">Avant</div>
+                        </div>
+                        <div class="comparison-after">
+                            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Après">
+                            <div class="comparison-label label-after">Après 4 semaines</div>
+                        </div>
+                        <div class="comparison-slider" id="comparisonSlider"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title">Témoignages de Nos Clients</h2>
+                <div class="testimonials-slider">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Les produits Ladislore ont transformé ma routine beauté. Ma peau n'a jamais été aussi éclatante et en bonne santé. Je recommande vivement!"</p>
+                            <p class="testimonial-author">- Marie N., Douala</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"J'ai essayé plusieurs marques de cosmétiques, mais aucune ne se compare à Ladislore. La qualité est exceptionnelle et les résultats sont visibles rapidement."</p>
+                            <p class="testimonial-author">- Sarah K., Yaoundé</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Le service client est excellent et les produits sont véritablement naturels. Ma peau sensible a enfin trouvé ce qu'il lui fallait."</p>
+                            <p class="testimonial-author">- Amina T., Garoua</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Social Videos Section -->
+        <section class="videos-section">
+            <div class="container">
+                <h2 class="section-title">VidÉos de Nos Réseaux</h2>
+                <div class="videos-grid">
+                    <div class="video-card" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-title="Tutoriel Maquillage">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tutoriel Maquillage">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Tutoriel Maquillage Éclatant</h3>
+                            <p class="video-source">Instagram</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-title="Routine Soins de la Peau">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1556228578-9c360e1d8d34?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Routine Soins de la Peau">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Routine Soins de la Peau Matin & Soir</h3>
+                            <p class="video-source">TikTok</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-title="Conseils Beauté Naturelle">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Conseils Beauté Naturelle">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Conseils Beauté 100% Naturelle</h3>
+                            <p class="video-source">Facebook</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Info -->
+        <section class="about-section">
+            <div class="container">
+                <div class="contact-info">
+                    <h2 class="contact-title">Informations de Contact</h2>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h3>Nos Localisations</h3>
+                                <p>Douala, Région du Littoral<br>Yaoundé, Région du Centre<br>Garoua, Région du Nord</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <h3>Numéro de Téléphone</h3>
+                                <p>+237 653 154 864</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <h3>Heures d'Ouverture</h3>
+                                <p>Lundi - Vendredi: 8H - 18H<br>Samedi: 9H - 16H</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h3>Adresse Email</h3>
+                                <p>commandes@ladislore.com<br>support@ladislore.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Footer (same as index) -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column"></div>
+            <div class="footer-column"></div>
+            <div class="footer-column"></div>
+            <div class="footer-column"></div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Ladislore Empire. Tous droits réservés. | Développé avec <i class="fas fa-heart" style="color: #ff4757;"></i></p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
