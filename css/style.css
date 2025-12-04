@@ -18,6 +18,14 @@
             --header-height: 70px;
             --container-width: 1180px;
         }
+        /* ...existing code... */
+
+/* Prevent zoom on input fields in mobile */
+input, textarea {
+    font-size: 16px; /* Set a base font size to prevent zoom */
+}
+
+/* ...existing code... */
         .lobster-regular {
            font-family: "Lobster", sans-serif;
            font-weight: 400;
@@ -234,6 +242,7 @@
             right: 15px;
             font-size: 1.2rem;
         }
+        
 
         /* Floating Back Button */
         .floating-back-btn {

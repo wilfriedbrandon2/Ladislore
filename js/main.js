@@ -949,43 +949,39 @@
 
         // Show about page
         function showAboutPage() {
-    // Scroll to top
-    window.scrollTo(0, 0);
-    
-    // Hide other pages
-    homePage.style.display = 'none';
-    productDetailsPage.style.display = 'none';
-    
-    // Show about page
-    aboutPage.style.display = 'block';
-    
-    // Hide search bar and icon
-    mobileSearchBar.classList.remove('active'); // Close mobile search if open
-    mobileSearchBtn.style.display = 'none'; // Hide search icon
-    searchInput.style.display = 'none'; // Hide search input
-}
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Hide other pages
+            homePage.style.display = 'none';
+            productDetailsPage.style.display = 'none';
+            
+            // Show about page
+            aboutPage.style.display = 'block';
+            
+            // Close mobile search if open
+            mobileSearchBar.classList.remove('active');
+        }
 
-// Show home page
-function showHomePage() {
-    // Scroll to top
-    window.scrollTo(0, 0);
-    
-    // Hide other pages
-    aboutPage.style.display = 'none';
-    productDetailsPage.style.display = 'none';
-    
-    // Show home page
-    homePage.style.display = 'block';
-    
-    // Show search bar and icon
-    mobileSearchBtn.style.display = 'block'; // Show search icon
-    searchInput.style.display = 'block'; // Show search input
-    searchInput.value = ''; // Clear search input
-    renderProducts(); // Show all products
-    
-    // Close mobile search if open
-    mobileSearchBar.classList.remove('active');
-}
+        // Show home page
+        function showHomePage() {
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Hide other pages
+            aboutPage.style.display = 'none';
+            productDetailsPage.style.display = 'none';
+            
+            // Show home page
+            homePage.style.display = 'block';
+            
+            // Reset search
+            searchInput.value = '';
+            renderProducts();
+            
+            // Close mobile search if open
+            mobileSearchBar.classList.remove('active');
+        }
 
         // Filter products by search
         function filterProducts() {
