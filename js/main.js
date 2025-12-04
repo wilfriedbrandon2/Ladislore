@@ -222,52 +222,63 @@
 
         // Initialize the website
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize hero slider
-            $('.hero-slider').slick({
-                dots: true,
-                infinite: true,
-                speed: 500,
-                fade: true,
-                cssEase: 'linear',
-                autoplay: true,
-                autoplaySpeed: 5000,
-                arrows: false
-            });
+    // Initialize hero slider
+    if (document.querySelector('.hero-slider')) {
+        $('.hero-slider').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
+            autoplay: true,
+            autoplaySpeed: 5000,
+            arrows: false
+        });
+    }
+
 
             // Initialize category slider with more items visible
-            $('.category-slider').slick({
-                dots: false,
-                infinite: false,
-                speed: 300,
-                slidesToShow: 8,
-                slidesToScroll: 3,
-                arrows: true,
-                prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
-                nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 6,
-                            slidesToScroll: 3
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 4,
-                            slidesToScroll: 2
-                        }
-                    },
-                    {
-                        breakpoint: 576,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 1
-                        }
+           // Initialize category slider with responsive arrows and dots
+    if (document.querySelector('.category-slider')) {
+        $('.category-slider').slick({
+            dots: false,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 8,
+            slidesToScroll: 3,
+            arrows: true,
+            prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+            nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 6,
+                        slidesToScroll: 3,
+                        arrows: true
                     }
-                ]
-            });
+                },
+                     {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 4,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    }
 
             // Initialize testimonials slider
             $('.testimonials-slider').slick({
@@ -938,39 +949,43 @@
 
         // Show about page
         function showAboutPage() {
-            // Scroll to top
-            window.scrollTo(0, 0);
-            
-            // Hide other pages
-            homePage.style.display = 'none';
-            productDetailsPage.style.display = 'none';
-            
-            // Show about page
-            aboutPage.style.display = 'block';
-            
-            // Close mobile search if open
-            mobileSearchBar.classList.remove('active');
-        }
+    // Scroll to top
+    window.scrollTo(0, 0);
+    
+    // Hide other pages
+    homePage.style.display = 'none';
+    productDetailsPage.style.display = 'none';
+    
+    // Show about page
+    aboutPage.style.display = 'block';
+    
+    // Hide search bar and icon
+    mobileSearchBar.classList.remove('active'); // Close mobile search if open
+    mobileSearchBtn.style.display = 'none'; // Hide search icon
+    searchInput.style.display = 'none'; // Hide search input
+}
 
-        // Show home page
-        function showHomePage() {
-            // Scroll to top
-            window.scrollTo(0, 0);
-            
-            // Hide other pages
-            aboutPage.style.display = 'none';
-            productDetailsPage.style.display = 'none';
-            
-            // Show home page
-            homePage.style.display = 'block';
-            
-            // Reset search
-            searchInput.value = '';
-            renderProducts();
-            
-            // Close mobile search if open
-            mobileSearchBar.classList.remove('active');
-        }
+// Show home page
+function showHomePage() {
+    // Scroll to top
+    window.scrollTo(0, 0);
+    
+    // Hide other pages
+    aboutPage.style.display = 'none';
+    productDetailsPage.style.display = 'none';
+    
+    // Show home page
+    homePage.style.display = 'block';
+    
+    // Show search bar and icon
+    mobileSearchBtn.style.display = 'block'; // Show search icon
+    searchInput.style.display = 'block'; // Show search input
+    searchInput.value = ''; // Clear search input
+    renderProducts(); // Show all products
+    
+    // Close mobile search if open
+    mobileSearchBar.classList.remove('active');
+}
 
         // Filter products by search
         function filterProducts() {
@@ -1152,3 +1167,113 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ...existing code...
+// ...No scroll on cart...
+
+function toggleCart() {
+    const cartSidebar = document.querySelector('.cart-sidebar');
+    const body = document.body;
+
+    if (cartSidebar.classList.contains('active')) {
+        cartSidebar.classList.remove('active');
+        body.classList.remove('no-scroll'); // Allow scrolling
+    } else {
+        cartSidebar.classList.add('active');
+        body.classList.add('no-scroll'); // Prevent scrolling
+    }
+}
+
+// ...existing code...
+
+// Search functionality
+searchInput.addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    
+    if (searchTerm.length === 0) {
+        renderProducts(); // Show all products if search is empty
+        clearSearchButton.style.display = 'none'; // Hide clear button
+        return;
+    }
+
+    const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(searchTerm) || 
+        product.description.toLowerCase().includes(searchTerm) ||
+        product.category.toLowerCase().includes(searchTerm)
+    );
+
+    renderProducts(filteredProducts);
+
+    // Show or hide the clear button
+    clearSearchButton.style.display = filteredProducts.length > 0 ? 'block' : 'none';
+
+    // If no products found, show not found message
+    if (filteredProducts.length === 0) {
+        productsGrid.innerHTML = `
+            <div class="no-products">
+                <i class="fas fa-search"></i>
+                <h3>Aucun produit trouvé</h3>
+                <p>Essayez avec d'autres termes de recherche</p>
+            </div>
+        `;
+    }
+});
+
+// Clear search input and results
+clearSearchButton.addEventListener('click', function() {
+    searchInput.value = '';
+    clearSearchButton.style.display = 'none'; // Hide clear button
+    renderProducts(); // Show all products
+});
+
+// Hide about section from search
+aboutPage.style.display = 'none'; // Ensure about section is not visible
+
+// ...existing code...
+
+
+// Search functionality
+searchInput.addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    
+    if (searchTerm.length === 0) {
+        renderProducts(); // Show all products if search is empty
+        clearSearchButton.style.display = 'none'; // Hide clear button
+        if (aboutPage.style.display === 'block') {
+            mobileSearchBtn.style.display = 'none'; // Hide search icon on about page
+        } else {
+            mobileSearchBtn.style.display = 'block'; // Show search icon on other pages
+        }
+        return;
+    }
+
+    const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(searchTerm) || 
+        product.description.toLowerCase().includes(searchTerm) ||
+        product.category.toLowerCase().includes(searchTerm)
+    );
+
+    renderProducts(filteredProducts);
+
+    // Show or hide the clear button
+    clearSearchButton.style.display = filteredProducts.length > 0 ? 'block' : 'none';
+
+    // If no products found, show not found message
+    if (filteredProducts.length === 0) {
+        productsGrid.innerHTML = `
+            <div class="no-products">
+                <i class="fas fa-search"></i>
+                <h3>Aucun produit trouvé</h3>
+                <p>Essayez avec d'autres termes de recherche</p>
+            </div>
+        `;
+    }
+});
+
+// Clear search input and results
+clearSearchButton.addEventListener('click', function() {
+    searchInput.value = '';
+    clearSearchButton.style.display = 'none'; // Hide clear button
+    renderProducts(); // Show all products
+    mobileSearchBtn.style.display = aboutPage.style.display === 'block' ? 'none' : 'block'; // Adjust search icon visibility
+});
+
+
