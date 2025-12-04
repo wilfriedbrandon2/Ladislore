@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ladislore - Cosmétiques Premium</title>
+    <title>Ladislore - EMPIRE Secrets de Cheveux</title>
     <meta name="theme-color" content="#D4AF37">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
@@ -12,12 +12,12 @@
     <link rel="icon" type="image/x-icon" href="img/IMG_9821.jpeg">
     <link rel="manifest" href="manifest.json"> <!-- Ensure this points to the correct manifest file -->
 
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-   <link rel="shortcut icon" href="/favicon.ico" />
-   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-   <meta name="apple-mobile-web-app-title" content="LadisLore" />
-   <link rel="manifest" href="/site.webmanifest" />
+     <meta name="description" content="Cosmétiques premium 100% bio et naturels">
+    <meta name="theme-color" content="#D4AF37">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Ladislore">
+    <link rel="manifest" href="/site.webmanifest">
 
 
 </head>
@@ -581,6 +581,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/sw.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
    
     
@@ -629,12 +630,39 @@
         }
     </script>
     <!-- just before </body> -->
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js').catch(err => console.warn('SW registration failed:', err));
-    });
-  }
-</script>
+ <!-- Register Service Worker and detect standalone mode -->
+    <script>
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('SW registered:', reg))
+                    .catch(err => console.warn('SW registration failed:', err));
+            });
+        }
+
+        // Detect if running as installed app
+        function isStandalone() {
+            return window.matchMedia('(display-mode: standalone)').matches
+                || window.navigator.standalone === true
+                || document.referrer.includes('android-app://');
+        }
+
+        // Show refresh button only in standalone mode
+        function updateRefreshButton() {
+            const refreshBtn = document.getElementById('floatingRefreshBtn');
+            if (refreshBtn) {
+                refreshBtn.style.display = isStandalone() ? 'flex' : 'none';
+                
+                refreshBtn.addEventListener('click', () => {
+                    location.reload();
+                });
+            }
+        }
+
+        // Update on load and orientation change
+        document.addEventListener('DOMContentLoaded', updateRefreshButton);
+        window.addEventListener('orientationchange', updateRefreshButton);
+    </script>
 </body>
 </html>
