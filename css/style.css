@@ -2010,3 +2010,11 @@ input, textarea {
 }
 
 /* ...existing code... */
+/* hide refresh by default; JS will show it in PWA mode */
+#floatingRefreshBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1200;
+}
