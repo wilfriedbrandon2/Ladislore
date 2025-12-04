@@ -1285,3 +1285,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ...existing code...
 });
+
+self.addEventListener('install', event => {
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(self.clients.claim());
+});
+
+// basic fetch fallback (no heavy caching)
+self.addEventListener('fetch', event => {
+  // pass-through by default
+});

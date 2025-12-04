@@ -1,21 +1,25 @@
 {
-  "name": "LadisLore Empire",
-  "short_name": "LadisLore",
+  "name": "Ladislore",
+  "short_name": "Ladislore",
+  "description": "Secrets de Cheveux",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#D4AF37",
   "icons": [
     {
-      "src": "/web-app-manifest-192x192.png",
+      "src": "img/manifest/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/web-app-manifest-512x512.png",
+      "src": "img/manifest/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
-  ],
-  "theme_color": "#000000",
-  "background_color": "#000000",
-  "display": "standalone"
+  ]
 }
