@@ -1272,4 +1272,16 @@ clearSearchButton.addEventListener('click', function() {
     mobileSearchBtn.style.display = aboutPage.style.display === 'block' ? 'none' : 'block'; // Adjust search icon visibility
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    // ...existing code...
 
+    // Floating Refresh Button functionality
+    const refreshBtn = document.getElementById('floatingRefreshBtn');
+    if (refreshBtn) {
+        refreshBtn.addEventListener('click', function() {
+            location.reload(); // Reload the page
+        });
+    }
+
+    // ...existing code...
+});

@@ -1984,3 +1984,29 @@ input, textarea {
                 padding: 0 2px;
             }
         }
+
+
+        /* ...existing code... */
+
+/* Floating Refresh Button */
+.floating-refresh-btn {
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    background-color: #D4AF37; /* Button color */
+    color: white; /* Icon color */
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 1000; /* Ensure it is above other content */
+    font-size: 24px; /* Icon size */
+}
+
+/* Add hover effect */
+.floating-refresh-btn:hover {
+    background-color: #b89a2e; /* Darker shade on hover */
+}
+
+/* ...existing code... */
