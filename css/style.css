@@ -2040,27 +2040,4 @@ input, textarea {
 }
 
 /* ...existing code... */
-/* Create a faux status bar for PWA mode */
-@media (display-mode: standalone) {
-  body::before {
-    content: '';
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: env(safe-area-inset-top, 30px);
-    background-color: #D4AF37;
-    z-index: 9999;
-  }
-  
-  /* Push content down */
-  body {
-    padding-top: env(safe-area-inset-top, 30px);
-  }
-  
-  /* If you have a fixed header */
-  .header {
-    top: env(safe-area-inset-top, 30px);
-  }
-}
+
